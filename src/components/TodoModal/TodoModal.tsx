@@ -17,6 +17,8 @@ export const TodoModal: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
     if (!currentTodo) {
+      setIsLoading(false);
+
       return;
     }
 
@@ -25,7 +27,7 @@ export const TodoModal: React.FC = () => {
       .finally(() => {
         setIsLoading(false);
       });
-  }, []);
+  }, [currentTodo]);
 
   return (
     <div className="modal is-active" data-cy="modal">

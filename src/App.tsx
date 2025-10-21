@@ -16,7 +16,7 @@ export const App = () => {
     setIsLoading(true);
     getTodos()
       .then(response => {
-        dispatch(todosSlice.actions.addTodos(response));
+        dispatch(todosSlice.actions.setTodos(response));
       })
       .finally(() => {
         setIsLoading(false);
