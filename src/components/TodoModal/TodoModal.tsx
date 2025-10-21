@@ -15,14 +15,15 @@ export const TodoModal: React.FC = () => {
   const removeCurrentTodo = () => dispatch(actions.remove());
 
   useEffect(() => {
-    setIsLoading(true);
     if (!currentTodo) {
-      setIsLoading(false);
+      setCurrentUser(null);
 
       return;
     }
 
-    getUser(currentTodo?.userId)
+    setIsLoading(true);
+
+    getUser(currentTodo.userId)
       .then(setCurrentUser)
       .finally(() => {
         setIsLoading(false);
